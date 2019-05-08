@@ -8,8 +8,3 @@ This repository provides **Matlab** functions to construct Markov chain approxim
 - *lctauchen.m* subroutine to discretise a non-stationary AR(1) using our extension of Tauchen [1986. "Finite State Markov-Chain Approximations to Univariate and
                   Vector Autoregressions," _Economics Letters_ 20].
 
-## Installation
-
-```
-Pkg.clone("https://github.com/gfell/nsmarkov-matlab")
-```
