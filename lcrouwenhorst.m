@@ -4,8 +4,8 @@ function [y_grid, trans] = lcrouwenhorst(rho,sigma_eps,N,T)
 %  for Non-Stationary Environments" by Giulio Fella, Giovanni Gallipoli
 %  and Jutong Pan
 % 
-%  Rouwenhurst method to approximate non-stationary AR(1) process by a discrete Markov chain
-%       y(t) = rho(t)*y(t-1)+ epsilon(t),   epsilion(t)~iid N(0,sigmaeps(t))
+%  Rouwenhorst method to approximate non-stationary AR(1) process by a discrete Markov chain
+%       y(t) = rho(t)*y(t-1)+ epsilon(t),   epsilon(t)~iid N(0,sigma_eps(t))
 %       with INITIAL condition y(0) = 0 (equivalently y(1)=epsilon(1) ) 
 %  INPUT:  rho - Tx1 vector of serial correlation coefficients
 %          sigma_eps - Tx1 vector of standard deviations of innovations
@@ -25,7 +25,7 @@ if N < 2
 end
 
 if T < 2
-    disp('The time horizon has to have dimension N>1. Exiting.')
+    disp('The time horizon has to have dimension T>1. Exiting.')
     return;
 end
 
@@ -33,7 +33,7 @@ end
 % Evenly-spaced N-state space over [-sqrt(N-1)*sigma_y(t),sqrt(N-1)*sigma_y(t)].
 
 
-% 1.a Compute unconditional variances of y(t)
+% 1.a Compute unconditional standard deviations of y(t)
 sigma_y(1) = sigma_eps(1);
 for i = 2:T 
     sigma_y(i) = sqrt(rho(i)^2*sigma_y(i-1)^2+sigma_eps(i)^2);
