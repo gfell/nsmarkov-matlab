@@ -5,7 +5,7 @@ function [y_grid, trans] = lcrouwenhorst(rho,sigma_eps,N,T)
 %  and Jutong Pan
 % 
 %  Rouwenhorst method to approximate non-stationary AR(1) process by a discrete Markov chain
-%       y(t) = rho(t)*y(t-1)+ epsilon(t),   epsilon(t)~iid N(0,sigmaeps(t))
+%       y(t) = rho(t)*y(t-1)+ epsilon(t),   epsilon(t)~iid N(0,sigma_eps(t))
 %       with INITIAL condition y(0) = 0 (equivalently y(1)=epsilon(1) ) 
 %  INPUT:  rho - Tx1 vector of serial correlation coefficients
 %          sigma_eps - Tx1 vector of standard deviations of innovations
